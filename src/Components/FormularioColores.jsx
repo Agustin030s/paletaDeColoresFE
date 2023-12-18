@@ -5,7 +5,7 @@ const FormularioColores = () => {
                 <p className="lead">Administrar Colores</p>
             </div>
             <div className="row justify-content-center align-items-center bg-info py-4 border border-dark">
-                <div className="col-md-4 d-flex justify-content-center">
+                <div className="col-md-4 d-flex justify-content-center mb-2">
                     <div className="cajaColor">
                     </div>
                 </div>

@@ -7,3 +7,14 @@
 .contenedorFormulario{
     box-shadow: 5px 5px 12px gray;
 }
+
+.card{
+    max-width: 300px;
+    box-shadow: 5px 5px 12px gray;
+}
+
+.cajaColorCard{
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+}
