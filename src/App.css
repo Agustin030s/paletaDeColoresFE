@@ -1,0 +1,9 @@
+.cajaColor{
+    height: 150px;
+    width: 150px;
+    background-color: blue;
+}
+
+.contenedorFormulario{
+    box-shadow: 5px 5px 12px gray;
+}
