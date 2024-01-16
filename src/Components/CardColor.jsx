@@ -1,8 +1,9 @@
 const CardColor = () => {
   return (
-    <div className="card">
+    <div className="col-md-4 col-lg-3 mb-3"> 
+    <article className="card">
       <div className="card-header">
-        <p>Nombre Color</p>
+        <h6>Nombre Color</h6>
       </div>
       <div className="card-body d-flex justify-content-center">
         <div className="cajaColorCard"></div>
@@ -10,6 +11,7 @@ const CardColor = () => {
       <div className="card-footer text-end">
         <button className="btn btn-danger">Borrar</button>
       </div>
+    </article>
     </div>
   );
 };

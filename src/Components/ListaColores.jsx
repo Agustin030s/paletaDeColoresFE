@@ -1,21 +1,10 @@
 import CardColor from "./CardColor";
 
-const ListaColores = () => {
+const ListaColores = ({listaColores, borrarColor}) => {
   return (
     <section className="container my-5">
       <div className="row justify-content-center">
-        <div className="col-md-4 col-lg-3 mb-2">
-          <CardColor></CardColor>
-        </div>
-        <div className="col-md-4 col-lg-3 mb-2">
-          <CardColor></CardColor>
-        </div>
-        <div className="col-md-4 col-lg-3 mb-2">
-          <CardColor></CardColor>
-        </div>
-        <div className="col-md-4 col-lg-3 mb-2">
-          <CardColor></CardColor>
-        </div>
+        {listaColores.map((color, index) => <CardColor key={index} color={color} borrarColor={borrarColor}></CardColor>)}
       </div>
     </section>
   );
