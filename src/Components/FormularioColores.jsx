@@ -35,7 +35,7 @@ const FormularioColores = () => {
             <div className="col-md-8">
               <input
                 type="text"
-                placeholder="Ingrese un color Ej. blue"
+                placeholder="Ingrese un color Ej. blue, gold, aquamarine"
                 className="form-control"
                 onChange={(e) => setColor(e.target.value)}
                 value={color}
