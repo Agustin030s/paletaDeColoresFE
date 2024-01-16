@@ -3,8 +3,8 @@ import ListaColores from "./ListaColores";
 
 const FormularioColores = () => {
   const [color, setColor] = useState("");
-  const [listaColores, setListaColores] = useState([]);
   const coloresLocalStorage = JSON.parse(localStorage.getItem('colores')) || [];
+  const [listaColores, setListaColores] = useState(coloresLocalStorage);
 
   useEffect(() => {
     localStorage.setItem('colores', JSON.stringify(listaColores));
@@ -12,7 +12,6 @@ const FormularioColores = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Desde el form de colores");
     setListaColores([...listaColores, color]);
     setColor("");
   };
@@ -36,7 +35,7 @@ const FormularioColores = () => {
             <div className="col-md-8">
               <input
                 type="text"
-                placeholder="Ingrese un color Ej. Blue"
+                placeholder="Ingrese un color Ej. blue"
                 className="form-control"
                 onChange={(e) => setColor(e.target.value)}
                 value={color}
