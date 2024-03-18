@@ -1,6 +1,15 @@
 import { Button, Card, Col } from "react-bootstrap";
 
-const CardColor = () => {
+const CardColor = ({ color }) => {
+  let backgroundColor = "black";
+
+  if (color.hexaColor === "" && color.rgbColor === "") {
+    backgroundColor = color.nombreColor;
+  } else if (color.hexaColor === "") {
+    backgroundColor = color.rgbColor;
+  } else {
+    backgroundColor = color.hexaColor;
+  }
 
   return (
     <Col md="4" lg="3" className="mb-3">
@@ -9,11 +18,18 @@ const CardColor = () => {
           <p className="lead m-0">Negro</p>
         </Card.Header>
         <Card.Body className="d-flex justify-content-center">
-          <div className="cajaColorCard border rounded"></div>
+          <div
+            className="cajaColorCard border rounded"
+            style={{ background: backgroundColor }}
+          ></div>
         </Card.Body>
         <Card.Footer className="text-end">
-          <Button variant="warning" className="me-2"><i className="bi bi-pencil-square"></i></Button>
-          <Button variant="danger"><i className="bi bi-trash3"></i></Button>
+          <Button variant="warning" className="me-2">
+            <i className="bi bi-pencil-square"></i>
+          </Button>
+          <Button variant="danger">
+            <i className="bi bi-trash3"></i>
+          </Button>
         </Card.Footer>
       </Card>
     </Col>

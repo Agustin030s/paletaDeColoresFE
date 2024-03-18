@@ -1,9 +1,28 @@
 {
-    "colores": [
-        {
-            "nombreColor": "Rojo",
-            "hexaColor": "#FF0000",
-            "rgbColor": "rgb(255, 0, 0)"
-        }
-    ]
+  "colores": [
+    {
+      "nombreColor": "Rojo",
+      "hexaColor": "#FF0000",
+      "rgbColor": "rgb(255, 0, 0)",
+      "id": "596f"
+    },
+    {
+      "id": "6ad1",
+      "nombreColor": "Rojo",
+      "hexaColor": "",
+      "rgbColor": ""
+    },
+    {
+      "id": "a4f2",
+      "nombreColor": "Rojo",
+      "hexaColor": "",
+      "rgbColor": ""
+    },
+    {
+      "id": "2554",
+      "nombreColor": "red",
+      "hexaColor": "",
+      "rgbColor": ""
+    }
+  ]
 }
