@@ -7,14 +7,15 @@ const CajaColor = () => {
   const colores = [
     "#FF007F",
     "#39FF14",
-    "#FFFF00",
     "#00FFFF",
     "#FFA500",
     "#800080",
+    "#FFFF00",
     "#FF4500",
-    "#BFFF00",
     "#FF6EC7",
+    "#BFFF00",
     "#6495ED",
+    "#FF0000",
   ];
 
   useEffect(() =>{
