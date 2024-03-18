@@ -6,7 +6,15 @@ import {
   obtenerColoresAPI,
 } from "../helpers/queries";
 
-const CardColor = ({ color, setColores }) => {
+const CardColor = ({
+  color,
+  setColores,
+  setEditar,
+  setId,
+  setValue,
+  setTextoBoton,
+}) => {
+  
   let backgroundColor = "black";
 
   if (color.hexaColor === "" && color.rgbColor === "") {
@@ -17,11 +25,26 @@ const CardColor = ({ color, setColores }) => {
     backgroundColor = color.hexaColor;
   }
 
-  const obtenerColor = async (id) => {
-    const respuesta = await obtenerColorAPI(id);
-    if (respuesta.status === 200) {
-      console.log("El color soy yo");
-    }
+  const editarColor = () => {
+    Swal.fire({
+      title: "Estás seguro que deseas editar este color?",
+      text: "Editaras las propiedades del color",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Editar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setEditar(true);
+        setId(color.id);
+        setTextoBoton("Editar");
+        setValue("nombreColor", color.nombreColor);
+        setValue("hexaColor", color.hexaColor);
+        setValue("rgbColor", color.rgbColor);
+      }
+    });
   };
 
   const eliminarColor = async (id) => {
@@ -48,6 +71,12 @@ const CardColor = ({ color, setColores }) => {
             const coloresRestantes = await respuestaColores.json();
             setColores(coloresRestantes);
           }
+        } else {
+          Swal.fire({
+            title: "Ocurrio un error",
+            text: `El color no pudo ser eliminado, intentelo nuevamente dentro de unos minutos`,
+            icon: "error",
+          });
         }
       }
     });
@@ -66,11 +95,7 @@ const CardColor = ({ color, setColores }) => {
           ></div>
         </Card.Body>
         <Card.Footer className="text-end">
-          <Button
-            variant="warning"
-            className="me-2"
-            onClick={() => obtenerColor(color.id)}
-          >
+          <Button variant="warning" className="me-2" onClick={editarColor}>
             <i className="bi bi-pencil-square"></i>
           </Button>
           <Button variant="danger" onClick={() => eliminarColor(color.id)}>

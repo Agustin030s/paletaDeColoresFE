@@ -61,3 +61,22 @@ export const eliminarColorAPI = async (id) => {
     });
   }
 };
+
+export const editarColorAPI = async (id, color) => {
+  try {
+    const respuesta = await fetch(`${URI_API_COLORES}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(color),
+    });
+    return respuesta;
+  } catch (error) {
+    Swal.fire({
+      title: "Servicio no disponible momentaneamente",
+      text: `Sucedio el error "${error}", intentelo nuevamente en unos minutos`,
+      icon: "error",
+    });
+  }
+};

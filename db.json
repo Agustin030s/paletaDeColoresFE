@@ -1,14 +1,20 @@
 {
   "colores": [
     {
-      "nombreColor": "Rojo",
-      "hexaColor": "#FF0000",
-      "rgbColor": "rgb(255, 0, 0)",
-      "id": "596f"
-    },
-    {
       "id": "2554",
       "nombreColor": "red",
+      "hexaColor": "",
+      "rgbColor": ""
+    },
+    {
+      "id": "622b",
+      "nombreColor": "aquamarine",
+      "hexaColor": "",
+      "rgbColor": ""
+    },
+    {
+      "id": "03d2",
+      "nombreColor": "blue",
       "hexaColor": "",
       "rgbColor": ""
     }

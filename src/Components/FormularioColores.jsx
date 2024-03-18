@@ -2,12 +2,20 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import ListaColores from "./ListaColores";
 import { useForm } from "react-hook-form";
 import CajaColor from "./auxiliar/CajaColor";
-import { agregarColorAPI, obtenerColoresAPI } from "../helpers/queries";
+import {
+  agregarColorAPI,
+  editarColorAPI,
+  obtenerColoresAPI,
+} from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 
 const FormularioColores = () => {
   const [colores, setColores] = useState([]);
+  const [editar, setEditar] = useState(false);
+  const [id, setId] = useState("");
+  const [textoBoton, setTextoBoton] = useState("Agregar");
+
   const {
     register,
     handleSubmit,
@@ -18,23 +26,45 @@ const FormularioColores = () => {
 
   useEffect(() => {
     obtenerColores();
-  }, [ListaColores]);
+  }, []);
 
   const onSubmit = async (color) => {
-    const respuesta = await agregarColorAPI(color);
-    if (respuesta.status === 201) {
-      Swal.fire({
-        title: "Color Agregado",
-        text: `El color ${color.nombreColor} fue agregado correctamente`,
-        icon: "success",
-      });
-      reset();
+    if (editar) {
+      const respuesta = await editarColorAPI(id, color);
+      if (respuesta.status === 200) {
+        Swal.fire({
+          title: "Color modificado con éxito",
+          text: "El color se modifico",
+          icon: "success",
+        });
+        setEditar(false);
+        setId("");
+        setTextoBoton("Agregar");
+        reset();
+      } else {
+        Swal.fire({
+          title: "Ocurrio un error",
+          text: `El color no pudo ser modificado, intentelo nuevamente dentro de unos minutos`,
+          icon: "error",
+        });
+      }
     } else {
-      Swal.fire({
-        title: "Ocurrio un error",
-        text: `El color no pudo ser agregado, intentelo nuevamente dentro de unos minutos`,
-        icon: "error",
-      });
+      const respuesta = await agregarColorAPI(color);
+      if (respuesta.status === 201) {
+        Swal.fire({
+          title: "Color Agregado",
+          text: `El color ${color.nombreColor} fue agregado correctamente`,
+          icon: "success",
+        });
+        obtenerColores();
+        reset();
+      } else {
+        Swal.fire({
+          title: "Ocurrio un error",
+          text: `El color no pudo ser agregado, intentelo nuevamente dentro de unos minutos`,
+          icon: "error",
+        });
+      }
     }
   };
 
@@ -125,11 +155,18 @@ const FormularioColores = () => {
             </Col>
           </Row>
           <div className="py-4 text-end">
-            <Button type="submit">Agregar</Button>
+            <Button type="submit">{textoBoton}</Button>
           </div>
         </Form>
       </section>
-      <ListaColores colores={colores} setColores={setColores}></ListaColores>
+      <ListaColores
+        colores={colores}
+        setColores={setColores}
+        setEditar={setEditar}
+        setId={setId}
+        setValue={setValue}
+        setTextoBoton={setTextoBoton}
+      ></ListaColores>
     </>
   );
 };
