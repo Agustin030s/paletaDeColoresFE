@@ -9,11 +9,11 @@ const CardColor = () => {
           <p className="lead m-0">Negro</p>
         </Card.Header>
         <Card.Body className="d-flex justify-content-center">
-          <div className="cajaColorCard"></div>
+          <div className="cajaColorCard border rounded"></div>
         </Card.Body>
         <Card.Footer className="text-end">
-          <Button variant="warning" className="me-2"><i class="bi bi-pencil-square"></i></Button>
-          <Button variant="danger"><i class="bi bi-trash3"></i></Button>
+          <Button variant="warning" className="me-2"><i className="bi bi-pencil-square"></i></Button>
+          <Button variant="danger"><i className="bi bi-trash3"></i></Button>
         </Card.Footer>
       </Card>
     </Col>
