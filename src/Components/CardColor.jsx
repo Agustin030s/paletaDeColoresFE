@@ -1,40 +1,22 @@
-const CardColor = ({ color, borrarColor }) => {
-  const esNombreColorValido = (col) => {
-    const coloresValidos = [
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "purple",
-      "silver",
-      "maroon",
-      "white",
-      "gray",
-      "lime",
-      "aquamarine",
-      "aliceblue",
-      "coral",
-      "gold"
-    ];
-    return coloresValidos.includes(col.toLowerCase());
-  };
+import { Button, Card, Col } from "react-bootstrap";
 
-  const colorFondo = esNombreColorValido(color) ? color : 'black';
+const CardColor = () => {
 
   return (
-    <div className="col-md-4 col-lg-3 mb-3">
-      <article className="card">
-        <div className="card-header">
-          <h6>{color.toUpperCase()}</h6>
-        </div>
-        <div className="card-body d-flex justify-content-center">
-          <div className="cajaColorCard" style={{ background: colorFondo }}></div>
-        </div>
-        <div className="card-footer text-end">
-          <button className="btn btn-danger" onClick={() => borrarColor(color)}>Borrar</button>
-        </div>
-      </article>
-    </div>
+    <Col md="4" lg="3" className="mb-3">
+      <Card>
+        <Card.Header>
+          <p className="lead m-0">Negro</p>
+        </Card.Header>
+        <Card.Body className="d-flex justify-content-center">
+          <div className="cajaColorCard"></div>
+        </Card.Body>
+        <Card.Footer className="text-end">
+          <Button variant="warning" className="me-2"><i class="bi bi-pencil-square"></i></Button>
+          <Button variant="danger"><i class="bi bi-trash3"></i></Button>
+        </Card.Footer>
+      </Card>
+    </Col>
   );
 };
 

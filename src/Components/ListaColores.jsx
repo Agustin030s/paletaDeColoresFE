@@ -1,12 +1,13 @@
+import { Container, Row } from "react-bootstrap";
 import CardColor from "./CardColor";
 
-const ListaColores = ({listaColores, borrarColor}) => {
+const ListaColores = () => {
   return (
-    <section className="container my-5">
-      <div className="row justify-content-center">
-        {listaColores.map((color, index) => <CardColor key={index} color={color} borrarColor={borrarColor}></CardColor>)}
-      </div>
-    </section>
+    <Container className="my-5">
+      <Row className="justify-content-center">
+        <CardColor></CardColor>
+      </Row>
+    </Container>
   );
 };
 
