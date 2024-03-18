@@ -1,4 +1,5 @@
 import { Button, Card, Col } from "react-bootstrap";
+import { obtenerColorAPI } from "../helpers/queries";
 
 const CardColor = ({ color }) => {
   let backgroundColor = "black";
@@ -11,11 +12,18 @@ const CardColor = ({ color }) => {
     backgroundColor = color.hexaColor;
   }
 
+  const obtenerColor = async (id) =>{
+    const respuesta = await obtenerColorAPI(id);
+    if(respuesta.status === 200){
+      console.log('El color soy yo');
+    }
+  }
+
   return (
     <Col md="4" lg="3" className="mb-3">
       <Card>
         <Card.Header>
-          <p className="lead m-0">Negro</p>
+          <p className="lead m-0">{color.nombreColor}</p>
         </Card.Header>
         <Card.Body className="d-flex justify-content-center">
           <div
@@ -24,7 +32,7 @@ const CardColor = ({ color }) => {
           ></div>
         </Card.Body>
         <Card.Footer className="text-end">
-          <Button variant="warning" className="me-2">
+          <Button variant="warning" className="me-2" onClick={() => obtenerColor(color.id)}>
             <i className="bi bi-pencil-square"></i>
           </Button>
           <Button variant="danger">

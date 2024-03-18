@@ -33,3 +33,16 @@ export const agregarColorAPI = async (color) => {
     });
   }
 };
+
+export const obtenerColorAPI = async (id) => {
+  try {
+    const respuesta = await fetch(`${URI_API_COLORES}/${id}`);
+    return respuesta;
+  } catch (error) {
+    Swal.fire({
+      title: "Servicio no disponible momentaneamente",
+      text: `Sucedio el error "${error}", intentelo nuevamente en unos minutos`,
+      icon: "error",
+    });
+  }
+};

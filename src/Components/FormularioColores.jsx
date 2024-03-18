@@ -126,7 +126,7 @@ const FormularioColores = () => {
             </Col>
           </Row>
           <div className="py-4 text-end">
-            <Button type="submit">Guardar</Button>
+            <Button type="submit">Agregar</Button>
           </div>
         </Form>
       </section>
