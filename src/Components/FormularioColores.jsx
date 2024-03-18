@@ -1,7 +1,17 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
 import ListaColores from "./ListaColores";
+import { useForm } from "react-hook-form";
 
 const FormularioColores = () => {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { erros },
+    reset,
+    setValue,
+  } = useForm();
+
   return (
     <>
       <section className="container contenedorFormulario">
@@ -14,11 +24,32 @@ const FormularioColores = () => {
               <div className="cajaColor"></div>
             </Col>
             <Col md="8">
-              <Form.Group controlId="color">
+              <Form.Group controlId="nombreColor" className="mb-3">
                 <Form.Control
                   type="text"
-                  placeholder="Ingrese un color Ej. blue, gold, aquamarine"
+                  placeholder= "Ej. Rojo"
                 ></Form.Control>
+                <Form.Text className="text-danger">
+                  Ingrese un nombre de color, es obligatorio
+                </Form.Text>
+              </Form.Group>
+              <Form.Group controlId="hexaColor" className="mb-3">
+                <Form.Control
+                  type="text"
+                  placeholder= "Ej. #FF0000"
+                ></Form.Control>
+                <Form.Text className="text-danger">
+                  Ingrese un nombre de color, es obligatorio
+                </Form.Text>
+              </Form.Group>
+              <Form.Group controlId="rgbColor" className="mb-3">
+                <Form.Control
+                  type="text"
+                  placeholder= "Ej. rgb(255, 0, 0)"
+                ></Form.Control>
+                <Form.Text className="text-danger">
+                  Ingrese un nombre de color, es obligatorio
+                </Form.Text>
               </Form.Group>
             </Col>
           </Row>

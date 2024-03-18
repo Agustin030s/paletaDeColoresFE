@@ -1,0 +1,9 @@
+{
+    "colores": [
+        {
+            "nombreColor": "Rojo",
+            "hexaColor": "#FF0000",
+            "rgbColor": "rgb(255, 0, 0)"
+        },
+    ]
+}
