@@ -4,9 +4,9 @@ import FormularioColores from "./Components/FormularioColores";
 
 function App() {
   return (
-    <div className="my-5">
+    <section className="my-5">
       <FormularioColores></FormularioColores>
-    </div>
+    </section>
   );
 }
 
