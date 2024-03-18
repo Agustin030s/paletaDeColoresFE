@@ -42,7 +42,6 @@ const FormularioColores = () => {
     const respuesta = await obtenerColoresAPI();
     if (respuesta.status === 200) {
       const datos = await respuesta.json();
-      console.log(datos);
       setColores(datos);
     } else {
       Swal.fire({
@@ -130,7 +129,7 @@ const FormularioColores = () => {
           </div>
         </Form>
       </section>
-      <ListaColores colores={colores}></ListaColores>
+      <ListaColores colores={colores} setColores={setColores}></ListaColores>
     </>
   );
 };
