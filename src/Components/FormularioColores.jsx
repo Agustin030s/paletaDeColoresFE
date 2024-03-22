@@ -125,6 +125,10 @@ const FormularioColores = () => {
                       value: 7,
                       message: "El codigo hexadecimal debe tener 7 caracteres",
                     },
+                    maxLength:{
+                      value: 7,
+                      message: "El codigo hexadecimal debe tener 7 caracteres"
+                    },
                     pattern: {
                       value: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
                       message: "Debes ingresar un código hexadecimal válido",
@@ -141,6 +145,14 @@ const FormularioColores = () => {
                   type="text"
                   placeholder="Ej. rgb(255, 0, 0)"
                   {...register("rgbColor", {
+                    minLength:{
+                      value: 8,
+                      message: "El codigo rgb debe tener como minimo 8 caracteres"
+                    },
+                    maxLength:{
+                      value: 20,
+                      message: "El codigo rgb debe tener 20 caracteres como máximo"
+                    },
                     pattern: {
                       value:
                         /^rgb\(\s*(\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3})\s*\)$/,
