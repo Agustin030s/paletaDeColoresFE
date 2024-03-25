@@ -26,7 +26,7 @@ const FormularioColores = () => {
 
   useEffect(() => {
     obtenerColores();
-  }, []);
+  }, [colores]);
 
   const onSubmit = async (color) => {
     if (editar) {
@@ -49,6 +49,18 @@ const FormularioColores = () => {
         });
       }
     } else {
+
+      if(color.hexaColor === "" && color.rgbColor === ""){
+        delete color.hexaColor;
+        delete color.rgbColor;
+      }else if(color.hexaColor === ""){
+        delete color.hexaColor;
+      }else if(color.rgbColor === ""){
+        delete color.rgbColor
+      }else{
+        return;
+      }
+
       const respuesta = await agregarColorAPI(color);
       if (respuesta.status === 201) {
         Swal.fire({
@@ -56,7 +68,6 @@ const FormularioColores = () => {
           text: `El color ${color.nombreColor} fue agregado correctamente`,
           icon: "success",
         });
-        obtenerColores();
         reset();
       } else {
         Swal.fire({
