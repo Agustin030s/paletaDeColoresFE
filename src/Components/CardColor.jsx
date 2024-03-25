@@ -14,16 +14,19 @@ const CardColor = ({
   setValue,
   setTextoBoton,
 }) => {
-  
   let backgroundColor = "black";
+  let hexaColor = color.hexaColor || "";
+  let rgbColor = color.rgbColor || "";
 
-  if (color.hexaColor === "" && color.rgbColor === "") {
-    backgroundColor = color.nombreColor;
-  } else if (color.hexaColor === "") {
-    backgroundColor = color.rgbColor;
+  if (hexaColor === "" && rgbColor === "") {
+    backgroundColor = color.nombreColor || backgroundColor;
+  } else if (hexaColor === "") {
+    backgroundColor = rgbColor;
   } else {
-    backgroundColor = color.hexaColor;
+    backgroundColor = hexaColor;
   }
+
+  console.log(backgroundColor);
 
   const editarColor = () => {
     Swal.fire({
@@ -38,7 +41,7 @@ const CardColor = ({
     }).then((result) => {
       if (result.isConfirmed) {
         setEditar(true);
-        setId(color.id);
+        setId(color._id);
         setTextoBoton("Editar");
         setValue("nombreColor", color.nombreColor);
         setValue("hexaColor", color.hexaColor);
@@ -98,7 +101,7 @@ const CardColor = ({
           <Button variant="warning" className="me-2" onClick={editarColor}>
             <i className="bi bi-pencil-square"></i>
           </Button>
-          <Button variant="danger" onClick={() => eliminarColor(color.id)}>
+          <Button variant="danger" onClick={() => eliminarColor(color._id)}>
             <i className="bi bi-trash3"></i>
           </Button>
         </Card.Footer>

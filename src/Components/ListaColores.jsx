@@ -14,7 +14,7 @@ const ListaColores = ({
       <Row className="justify-content-center">
         {colores.map((color) => (
           <CardColor
-            key={color.id}
+            key={color._id}
             color={color}
             setColores={setColores}
             setEditar={setEditar}
